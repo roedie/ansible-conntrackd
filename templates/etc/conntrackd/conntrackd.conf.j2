@@ -76,7 +76,7 @@ Sync {
 		# using the fail-over scripts instead of enabling this option!
 		#
 		# DisableExternalCache Off
-{% if disableexternalcache is define %}
+{% if disableexternalcache is defined %}
     DisableExternalCache {{ disableexternalcache }}
 {% endif %}
 	}
