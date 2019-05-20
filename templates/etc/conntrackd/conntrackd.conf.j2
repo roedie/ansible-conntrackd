@@ -16,7 +16,7 @@ Sync {
 		#
 		# ResendQueueSize 131072
 {% if resendqueuesize is defined %}
-    ResendQueueSize {{ resendqueuesize }}
+		ResendQueueSize {{ resendqueuesize }}
 {% endif %}
 
 		#
@@ -32,7 +32,7 @@ Sync {
 		#
 		# CommitTimeout 180
 {% if committimeout is defined %}
-    CommitTimeout {{ committimeout }}
+		CommitTimeout {{ committimeout }}
 {% endif %}
 
 		#
@@ -45,7 +45,7 @@ Sync {
 		#
 		# PurgeTimeout 60
 {% if purgetimeout is defined %}
-    PurgeTimeout {{ purgetimeout }}
+		PurgeTimeout {{ purgetimeout }}
 {% endif %}
 
 		# Set the acknowledgement window size. If you decrease this
@@ -60,7 +60,7 @@ Sync {
 		#
 		# ACKWindowSize 300
 {% if ackwindowsize is defined %}
-    ACKWindowSize {{ ackwindowsize }}
+		ACKWindowSize {{ ackwindowsize }}
 {% endif %}
 
 		#
@@ -77,7 +77,7 @@ Sync {
 		#
 		# DisableExternalCache Off
 {% if disableexternalcache is defined %}
-    DisableExternalCache {{ disableexternalcache }}
+		DisableExternalCache {{ disableexternalcache }}
 {% endif %}
 	}
 
@@ -307,7 +307,7 @@ General {
 	#
 	#Syslog on
 {% if syslog is defined %}
-  Syslog {{ syslog }}
+	Syslog {{ syslog }}
 {% endif %}
 
 	#
@@ -357,7 +357,7 @@ General {
 	#
 	# NetlinkOverrunResync On
 {% if netlinkoverrunresync is defined %}
-  NetlinkOverrunResync {{ netlinkoverrunresync }}
+	NetlinkOverrunResync {{ netlinkoverrunresync }}
 {% endif %}
 
 	#
@@ -368,7 +368,7 @@ General {
 	#
 	# NetlinkEventsReliable Off
 {% if netlinkeventsreliable is defined %}
-  NetlinkEventsReliable {{ netlinkeventsreliable }}
+	NetlinkEventsReliable {{ netlinkeventsreliable }}
 {% endif %}
 
 	#
@@ -383,7 +383,7 @@ General {
 	#
 	# PollSecs 15
 {% if pollsecs is defined %}
-  Pollsecs {{ pollsecs }}
+	Pollsecs {{ pollsecs }}
 {% endif %}
 
 	#
@@ -397,7 +397,7 @@ General {
 	#
 	# EventIterationLimit 100
 {% if eventiterationlimit is defined %}
-  EventIterationLimit {{ eventiterationlimit }}
+	EventIterationLimit {{ eventiterationlimit }}
 {% endif %}
 
 	#
@@ -422,9 +422,9 @@ General {
 		#
 		Protocol {{ filterfromprotocol }} {
 {% if filterfromprotocols is defined %}
-{%    for item in filterfromprotocols %}
-      {{ item }}
-{%    endfor %}
+{%	for item in filterfromprotocols %}
+			{{ item }}
+{%	endfor %}
 {% endif %}
 			# UDP
 			# ICMP # This requires a Linux kernel >= 2.6.31
@@ -441,9 +441,9 @@ General {
 		Address Ignore {
 			IPv4_address 127.0.0.1 # loopback
 {% if conntrackd_ignore_addresses is defined %}
-{%   for item in conntrackd_ignore_addresses %}
+{%	for item in conntrackd_ignore_addresses %}
 			IPv4_address {{ item }}
-{%   endfor %}
+{%	endfor %}
 {% endif %}
 #			IPv4_address 192.168.0.100 # virtual IP 1
 #			IPv4_address 192.168.1.100 # virtual IP 2
@@ -457,9 +457,9 @@ General {
 			# You can also specify an IPv6 address
 			# IPv6_address ::1
 {% if conntrackd_ignore_addresses_v6 is defined %}
-{%    for item in conntrackd_ignore_addresses_v6 %}
-      IPv6_address {{ item }}
-{%    endfor %}
+{%	for item in conntrackd_ignore_addresses_v6 %}
+			IPv6_address {{ item }}
+{%	endfor %}
 {% endif %}
 		}
 
@@ -475,9 +475,9 @@ General {
 		#	ESTABLISHED CLOSED TIME_WAIT CLOSE_WAIT for TCP
 		# }
 {% if state_accept is defined %}
-    State Accept {
-      {{ state_accept }}
-    }
+		State Accept {
+			{{ state_accept }}
+		}
 {% endif %}
 	}
 }
