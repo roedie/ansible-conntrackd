@@ -1,7 +1,17 @@
 ---
 # tasks file for ansible-conntrackd
-- include: debian.yml
+- name: Run Debian specific setup
+  ansible.builtin.include_tasks:
+    file: debian.yml
   when: ansible_os_family == "Debian"
 
-- include: config_conntrackd.yml
-  when: enable_conntrackd and config_conntrackd
+- name: Configure conntrackd
+  ansible.builtin.include_tasks:
+    file: config_conntrackd.yml
+  when: conntrackd_enable and conntrackd_config
+
+- name: enable service
+  service:
+    name: conntrackd
+    state: "{% if conntrackd_enable %}started{% else %}stopped{% endif %}"
+    enabled: "{{ conntrackd_enable }}"
