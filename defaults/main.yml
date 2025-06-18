@@ -1,6 +1,6 @@
 ---
 # defaults file for ansible-conntrackd
-config_conntrackd: false  #defines if conntrackd should be configured
+conntrackd_config: false  #defines if conntrackd should be configured
 conntrackd_ignore_addresses:
   - '{{ ansible_default_ipv4.address }}'
   - '{{ conntrackd_sync_ip }}'
